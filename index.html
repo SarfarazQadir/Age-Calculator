@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Age Calculator</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: #0ef;
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+        }
+
+        .calculator-container {
+            background: #2c2c2c;
+            border-radius: 20px;
+            box-shadow: 10px 10px 30px #141414, -10px -10px 30px #383838;
+            padding: 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .calculator-container:hover {
+            box-shadow: 5px 5px 15px #141414, -5px -5px 15px #383838;
+        }
+
+        .calculator-title {
+            font-size: 28px;
+            color: #0ef;
+            margin-bottom: 20px;
+        }
+
+        .calculator-input {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            border-radius: 10px;
+            box-shadow: inset 5px 5px 10px #141414, inset -5px -5px 10px #383838;
+            font-size: 18px;
+            margin-bottom: 20px;
+            outline: none;
+            transition: box-shadow 0.3s ease;
+            background: #3c3c3c;
+            color: #fff;
+        }
+
+        .calculator-input:focus {
+            box-shadow: inset 2px 2px 5px #141414, inset -2px -2px 5px #383838;
+        }
+
+        .calculate-btn {
+            background: #0ef;
+            color: #fff;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 10px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+
+        .calculate-btn:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+        }
+
+        .calculate-btn:active {
+            transform: translateY(1px);
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator-container">
+        <div class="calculator-title">Age Calculator</div>
+        <input type="text" id="ageInput" class="calculator-input" placeholder="Enter your age or year of birth">
+        <button class="calculate-btn" onclick="calculateAge()">Calculate</button>
+    </div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
+    <script>
+        function calculateAge() {
+            var ipt = document.getElementById("ageInput").value;
+            var currentYear = new Date().getFullYear();
+            var result = currentYear - ipt;
+            
+            if (ipt <= 100) {
+                swal("Your Date of Birth", "You were born in " + result, "success");
+            } else {
+                swal("Your Age", "Your age is " + result, "success");
+            }
+        }
+    </script>
+</body>
+</html>
